@@ -42,8 +42,8 @@ function getSeason(pickupDate, dropoffDate) {
   const pickup = new Date(pickupDate);
   const dropoff = new Date(dropoffDate);
 
-  const start = 4; 
-  const end = 10;
+  const start = 3; 
+  const end = 9;
 
   const pickupMonth = pickup.getMonth();
   const dropoffMonth = dropoff.getMonth();
