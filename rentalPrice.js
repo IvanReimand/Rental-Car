@@ -12,7 +12,7 @@ function price(pickup, dropoff, pickupDate, dropoffDate, type, age) {
       return "Drivers 21 y/o or less can only rent Compact vehicles";
   }
 
-  let rentalprice = age * days;
+  let rentalprice = age * days * type * season;
 
   if (clazz === "Racer" && age <= 25 && season === "High") {
       rentalprice *= 1.5;
