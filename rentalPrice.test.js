@@ -107,6 +107,7 @@ describe("calculatePrice – rental days calculation", () => {
         const result = getWeekDays("2026-02-14", "2026-02-16");
         expect(result).toBe(1);// тест для будних
     })
+    
     test('Calculate weekweekenddays', () => {
         const result = getWeekWeekendDays("2026-02-14", "2026-02-16");
         expect(result).toBe(3);// тест для будних и выходных
