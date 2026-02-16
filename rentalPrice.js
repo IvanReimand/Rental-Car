@@ -92,4 +92,40 @@ function getSeason(pickupDate, dropoffDate) {
     return SEASON.LOW;
 }
 
+function getWeekandDays(startDate, endDate) {
+    return countDaysByType(startDate, endDate, "weekend");
+}
+
+function getWeekDays(startDate, endDate) {
+    return countDaysByType(startDate, endDate, "weekday");
+}
+
+function getWeekWeekendDays(startDate, endDate) {
+    return countDaysByType(startDate, endDate, "all");
+}
+
+function countDaysByType(startDate, endDate, type) {
+    const start = new Date(startDate);
+    const end = new Date(endDate);
+
+    let count = 0;
+
+    for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
+        const day = d.getDay(); // 0 = Sunday, 6 = Saturday
+        const isWeekend = day === 0 || day === 6;
+
+        if (
+            type === "all" ||
+            (type === "weekend" && isWeekend) ||
+            (type === "weekday" && !isWeekend)
+        ) {
+            count++;
+        }
+    }
+
+    return count;
+}
 exports.calculatePrice = calculatePrice;
+exports.getWeekandDays = getWeekandDays;
+exports.getWeekDays = getWeekDays;
+exports.getWeekWeekendDays = getWeekWeekendDays;
